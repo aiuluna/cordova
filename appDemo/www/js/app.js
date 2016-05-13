@@ -118,7 +118,9 @@ $(function () {
                 }
             })
         }
-    })(tempArr.pop())
+    })(tempArr.pop());
+
+    FastClick.attach(document.body);
 
 })
 
