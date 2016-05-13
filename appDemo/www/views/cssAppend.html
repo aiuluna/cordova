@@ -1,0 +1,129 @@
+<style>
+<%
+var clientHeight = windowHeight - statusBarMargin,
+	heightWithoutHeader = clientHeight - 44,
+	heightWithoutHeaderFooter = clientHeight - 44 - 50;
+%>
+.ui-page.ui-has-header .ui-page-body {
+	height: <%=heightWithoutHeader%>px;
+}
+.ui-page.ui-has-header.ui-has-footer .ui-page-body {
+	height: <%=heightWithoutHeaderFooter%>px;
+}
+/* hospitalServiceView */
+<%
+var bannerHeight = Math.round(windowWidth*0.4),
+	ch = heightWithoutHeaderFooter - Math.round(windowWidth*0.4),
+	marginW = 3, marginH = 6, imgW, imgH;
+
+	imgW = ( windowWidth-marginW*6 )/3;
+	imgH = imgW*0.75;
+%>
+.hospital-service-view .banner {
+	height: <%=bannerHeight + 10%>px;
+}
+.hospital-service-view .circle-outer {
+    height: <%=bannerHeight%>px;
+}
+.circle-outer .mode{
+    height: <%=bannerHeight-10%>px;
+}
+.circle-outer .mode .img{
+    height: <%=(bannerHeight-10)*0.75%>px;
+    background-size: <%=(bannerHeight-10)*0.72%>px;
+}
+.hospital-service-view .content {
+    height: <%=imgH*3+36%>px;
+    padding: <%=marginH%>px <%=marginW%>px;
+}
+.hospital-service-view .content .half-column {
+	margin: <%=marginH%>px <%=marginW%>px;
+	width: <%=imgW%>px;
+	height: <%=imgH%>px;
+}
+#noticesBody{
+    height: <%=heightWithoutHeader - 40%>px;
+}
+/* scheduleInqueryView */
+.expert-schedule-search-div .search-input {
+	width: <%=windowWidth-95%>px;
+}
+/* scheduleSearchResultView */
+.expert-schedule-search-div.depts-w3 .search-input {
+	width: <%=windowWidth-152%>px;
+}
+.expert-schedule-search-div.depts-w4 .search-input {
+	width: <%=windowWidth-166%>px;
+}
+#scheduleSearchResult {
+	height: <%=heightWithoutHeader - 46%>px;
+}
+/* departListView */
+.depart-list {
+	height: <%=heightWithoutHeader - 64%>px;
+}
+/*memberList*/
+.member-item {width: <%=windowWidth/2-20%>px;}
+/*perInfoInputEditView*/
+#reg-records, #checkup-records {height: <%=heightWithoutHeader-90%>px;}
+#reg-records.has-choose-item{
+    height: <%=heightWithoutHeader-150%>px;
+}
+#regInfoConfirm {
+    height: <%=heightWithoutHeader - 60%>px;
+    position: relative;
+}
+.reg-protocal #notes-registration{height: <%=clientHeight-165%>px;}
+
+#personalCenterScroller {
+	height: <%=heightWithoutHeaderFooter-140%>px;
+}
+.reg-info-confirm-cardNo{
+    width: <%=windowWidth-150%>px;
+}
+.scroller-list{
+    height: <%=heightWithoutHeader-55%>px;
+}
+#card-select{
+    height: <%=heightWithoutHeader-60%>px;
+}
+#checkClause{
+    height: <%=heightWithoutHeaderFooter-20%>px;
+}
+.recharge-view #amount{
+    width: <%=windowWidth-112%>px;
+    text-align: right;
+}
+#divOutofImg, #divOutofImg2{
+    position: relative;
+}
+.inspectRadioScroll, .inspectCheckboxScroll{
+    height: <%=heightWithoutHeader-100%>px;
+}
+
+<% if( mobile === 'android' ) { %>
+/*一般输入框的宽度*/
+.form-table .change-pwd-input {width: <%=windowWidth-88%>px;}
+/*忘记密码和注册帐号页面输入框长度*/
+.forgotPwd-form input {width: <%=windowWidth-113%>px;}
+.forgotPwd-form #secCode, .forgotPwd-form  #securityCode {width: <%=windowWidth-208%>px;}
+/*持卡人管理输入框*/
+.perInfoInputEdit.form-table input {width: <%=windowWidth-38%>px;}
+.depart-search-div .search-input {width: <%=windowWidth-102%>px;}
+.expert-schedule-search-div .search-input {width: <%=windowWidth-93%>px;}
+<% } else { %>
+/*一般输入框的宽度*/
+.form-table .change-pwd-input {width: <%=windowWidth-52%>px;}
+/*忘记密码和注册帐号页面输入框长度*/
+.forgotPwd-form input {width: <%=windowWidth-77%>px;}
+.forgotPwd-form #secCode, .forgotPwd-form  #securityCode {width: <%=windowWidth-172%>px;}
+/*持卡人管理输入框*/
+.perInfoInputEdit.form-table input {width: <%=windowWidth-12%>px;}
+.depart-search-div .search-input {width: <%=windowWidth-66%>px;}
+.expert-schedule-search-div .search-input {width: <%=windowWidth-57%>px;}
+<% } %>
+/*预约须知*/
+.appointmentView #notes-registration {
+    height: <%=heightWithoutHeader-90%>px;
+}
+</style>
