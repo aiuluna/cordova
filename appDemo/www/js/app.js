@@ -21,6 +21,8 @@ var app = {
     initialize: function() {
         this.bindEvents();
         Layout.initialize(wndw.width(),wndw.height());
+        StageManager.initialize();
+        StageManager.pushView(Views.mainView);
     },
     // Bind Event Listeners
     //
@@ -32,22 +34,25 @@ var app = {
             TOUCH_EVENT = hasTouch ? 'touchstart touchend touchcancel touchmove' : 'mousedown mouseup mouseout mousemove',
             touchTag;
 
-        $(document.body).on(TOUCH_EVENT,'ui-btn', function (e) {
+        $(document.body).on(TOUCH_EVENT,'.ui-btn', function (e) {
             var _eType = e.type,
                 _btn = $(this),
                 _btnId = _btn.attr("id");
             if(!_btnId){
                 _btnId = Util.getAutoId();
+                _btn.attr("id",_btnId);
             }
             if(_eType == 'touchstart'||_eType == 'mousedown'){
                 touchTag = _btnId;
                 if(!_btn.hasClass('down'))_btn.addClass('down');
 
             }
-            else if(_eType == 'touchend'||_eType == 'mouseup'){
+            if(_eType == 'touchend'||_eType == 'mouseup'){
                 if(touchTag == _btnId && _btn.attr('data-action')){
-
+                    var callbackName = _btn.attr('data-action');
+                    CallBack[callbackName](_btnId);
                 }
+
             }else{
                 e.preventDefault();
             }
