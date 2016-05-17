@@ -171,6 +171,11 @@ Layout.TabbedPanelLayout = Class.extend(Class.create(),Layout.LayoutBase,{
 
         if(transitionEndCallback) transitionEndCallback();
         return;
+    },
+    popStackView: function (index,transitionEndCallback) {
+        if(index>-1){
+
+        }
     }
 
 })
@@ -213,5 +218,16 @@ var StageManager = {
     },
     pushView: function (panelView,transitionEndCallback) {
         this.layout.pushStackView(panelView,transitionEndCallback);
+    },
+    popView: function (panelView,transitionEndCallback) {
+        var index = -1;
+        if(panelView){
+            for(i=0;i<this.layout.tabViewStack.length;i++){
+                if(panelView == this.layout.tabViewStack[i].options.tmpl){
+                    index = i;
+                }
+            }
+        }
+        this.layout.popStackView(index,transitionEndCallback)
     }
 }
